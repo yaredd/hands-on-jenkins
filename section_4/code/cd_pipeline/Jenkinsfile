@@ -14,6 +14,7 @@ pipeline {
     stages {
 
 		stage("Test - Unit tests") {
+			agent { docker { image 'python:latest' } }
 			steps { runUnittests() }
 		}
 
@@ -25,8 +26,9 @@ pipeline {
             steps { deploy('dev') }
 		}
 
-		stage("Test - UAT Dev") {
-            steps { runUAT(8888) }
+	    stage("Test - UAT Dev") {
+		    
+            	    steps { runUAT(8888) }
 		}
 
         stage("Deploy - Stage") {

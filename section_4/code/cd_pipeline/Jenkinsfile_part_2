@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 
 pipeline {
-	angent any
+	agent any
 
 	options {
 		disableConcurrentBuilds()

@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 
 pipeline {
-	agent { docker { image 'python:3.7.2' } }
+	angent any
 
 	options {
 		disableConcurrentBuilds()
@@ -14,6 +14,7 @@ pipeline {
 	stages {
 
 		stage("Test - Unit tests") {
+			agent { docker { image 'python:3.7.2' } }
 			steps { runUnittests() }
 		}
 
@@ -72,7 +73,7 @@ def deploy(environment) {
 
 
 def runUnittests() {
-	sh "pip3 install --no-cache-dir -r ./section_4/code/cd_pipeline/requirements.txt"
+	sh "pip3 install --user --no-cache-dir -r ./section_4/code/cd_pipeline/requirements.txt"
 	sh "python3 section_4/code/cd_pipeline/tests/test_flask_app.py"
 }
 

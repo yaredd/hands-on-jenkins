@@ -58,9 +58,9 @@ pipeline {
 // steps
 def buildApp() {
 	def appImage = docker.build("hands-on-jenkins/myapp:${BUILD_NUMBER}")
-	docker.withRegistry('https://docker-registry.intranet.icsaddis.org:5000') {
-		appImage.push()
-	}
+	//docker.withRegistry('https://docker-registry.intranet.icsaddis.org:5000') {
+	//	appImage.push()
+	//}
 }
 
 
